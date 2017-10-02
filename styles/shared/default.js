@@ -1,9 +1,11 @@
+import { themeColors } from './colors'
+
 export const display=`
 body {
   margin: 0;
   padding: 0;
-  background-color: #323232;
-  color: #9D9D9D;
+  background-color: ${ themeColors.medDark };
+  color: ${ themeColors.darkMuted };
 }`
 
 export const lightDisplay=`

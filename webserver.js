@@ -1,27 +1,10 @@
 const app = require('express')()
 const server = require('http').Server(app)
-const io = require('socket.io')(server)
 const next = require('next')
 
 const dev = process.env.NODE_ENV !== 'production'
 const nextApp = next({ dev })
 const nextHandler = nextApp.getRequestHandler()
-
-import SwingCore from './swing/core.js'
-
-// socket.io server
-io.on('connection', socket => {
-  socket.emit('connected', "CONNECTED")
-  /*
-  socket.on('message', (data) => {
-    messages.push(data)
-    socket.broadcast.emit('message', data)
-  })
-  */
-  socket.on('disconnect', () => {
-
-  });
-})
 
 nextApp.prepare().then(() => {
   app.get('*', (req, res) => {

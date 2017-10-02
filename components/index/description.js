@@ -1,4 +1,5 @@
 import React from 'react'
+import { themeColors } from '../../styles/shared/colors.js'
 
 export default class Description extends React.Component{
   render(){
@@ -20,7 +21,7 @@ export default class Description extends React.Component{
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #D6D6D6;
+            background-color: ${ themeColors.medLight };
             padding-top: 60px;
           }
 
@@ -28,7 +29,7 @@ export default class Description extends React.Component{
             margin: 50px 45px 0 45px;
             font-size: 37.5px;
             font-weight: 300;
-            color: #727272;
+            color: ${ themeColors.medMuted };
           }
 
           h2 {
@@ -36,7 +37,7 @@ export default class Description extends React.Component{
             padding-left: 55%;
             font-size: 27.5px;
             font-weight: 100;
-            color: #727272;
+            color: ${ themeColors.medMuted };
           }
 
           div.spacer {

@@ -8,7 +8,6 @@ export default class Body extends React.Component{
         <Panel>
           <div className="content">
             <p>Heyo, the history section ain't available yet. Maybe next time?</p>
-            <p><i>(the developer is a lazy fatass)</i></p>
           </div>
         </Panel>
 

@@ -11,9 +11,9 @@ export default class extends React.Component{
   render(){
     return(
       <div className="root">
-        <Meta title="Swing Network" />
+        <Meta title="$: home" />
 
-        <Navbar selection="swing" />
+        <Navbar selection="home" />
         <Intro />
         <Description />
         <Footer />

@@ -1,6 +1,7 @@
 import React from 'react'
 import Panel from './components/panel.js'
-import io from 'socket.io-client'
+import { socketAddress } from '../shared/global-references.js'
+import { themeColors } from '../../styles/shared/colors.js'
 
 export default class ConsolePanel extends React.Component{
   constructor(props){
@@ -19,10 +20,17 @@ export default class ConsolePanel extends React.Component{
   }
 
   componentDidMount(){
-    this.socket = io('http://127.0.0.1:3000') //NEEDS TO BE UPDATED BEFORE RELEASE
-    this.socket.on('connected', (message)=>{
-      console.log(message)
-    })
+    this.socket = new WebSocket(socketAddress);
+    this.socket.onopen = ()=>{
+      this.socket.send("I'M GAY");
+      this.socket.onmessage = (event)=>{
+        console.log(event);
+        this.setState((state)=>{
+          state.content.value = event.data;
+          return state;
+        })
+      }
+    }
   }
 
   handleSubmit(event){
@@ -69,7 +77,7 @@ export default class ConsolePanel extends React.Component{
 
           div.input-bar {
             display: flex;
-            background-color: #B1B1B1;
+            background-color: ${ themeColors.darkMuted };
             padding: 5px 10px;
             margin: 0;
             justify-content: center;
@@ -87,12 +95,12 @@ export default class ConsolePanel extends React.Component{
             width: auto;
             margin: 0;
             border: 0;
-            background-color: #808080;
+            background-color: ${ themeColors.medLightMuted };
             border-radius: 10px;
             height: 30px;
             outline: 0;
             padding: 0 10px;
-            color: #D5D5D5;
+            color: ${ themeColors.darkMuted };
             font-family: "Muli", sans-serif;
             font-weight: 300;
             font-size: 20px;
@@ -101,11 +109,11 @@ export default class ConsolePanel extends React.Component{
 
           div.input-bar input:focus {
             outline: 0;
-            background-color: #767676;
+            background-color: ${ themeColors.light };
           }
 
           div.input-bar input:hover {
-            background-color: #767676;
+            background-color: ${ themeColors.light };
           }
         `}</style>
       </div>

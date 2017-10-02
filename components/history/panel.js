@@ -1,4 +1,5 @@
 import React from 'react'
+import { themeColors } from '../../styles/shared/colors.js'
 
 export default class Panel extends React.Component{
   constructor(props) {
@@ -53,7 +54,7 @@ export default class Panel extends React.Component{
           div.root {
             display: flex;
             border-radius: 20px;
-            background-color: #5D5D5D;
+            background-color: ${ themeColors.medLight };
             flex-direction: column;
             justify-content: center;
             margin: 10px;
@@ -66,7 +67,7 @@ export default class Panel extends React.Component{
 
           div.title-bar {
             display: flex;
-            background-color: #4E4E4E;
+            background-color: ${ themeColors.medDarkMuted };
             border-radius: 20px 20px 0 0;
             justify-content: center;
             padding: 7.5px 0;
@@ -77,7 +78,7 @@ export default class Panel extends React.Component{
             font-family: "Ubuntu", sans-serif;
             font-size: 20px;
             font-weight: 500;
-            color: #9A9A9A;
+            color: ${ themeColors.medLight };
           }
 
           div.content {
@@ -86,6 +87,7 @@ export default class Panel extends React.Component{
             flex: 1;
             overflow-x: hidden;
             overflow-y: scroll;
+            color: ${ themeColors.medMuted };
           }
 
           @media screen and (max-width: 750px){

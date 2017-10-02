@@ -1,4 +1,5 @@
 import React from 'react'
+import { themeColors } from '../../../styles/shared/colors.js'
 
 export default class InfoCard extends React.Component{
   constructor(props) {
@@ -27,8 +28,8 @@ export default class InfoCard extends React.Component{
             display: flex;
             flex-direction: column;
             padding: 0; margin: 0;
-            background-color: #C1C1C1;
-            color: #878787;
+            background-color: ${ themeColors.medMuted };
+            color: ${ themeColors.medLight };
             margin: 5px;
             border-radius: 17.5px;
             padding: 7.5px 12.5px;
@@ -36,8 +37,8 @@ export default class InfoCard extends React.Component{
           }
 
           div.tinted {
-            background-color: #B6BDCB;
-            color: #647C9D;
+            background-color: ${ themeColors.med };
+            color: ${ themeColors.light };
           }
 
           p {

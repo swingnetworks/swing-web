@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { themeColors } from '../../styles/shared/colors.js'
 
 export class Navbar extends React.Component{
   constructor(props){
@@ -25,7 +26,7 @@ export class Navbar extends React.Component{
           <table>
             <tbody>
               <tr>
-                <td><Link prefetch href="/"><a className={this.getSelection("swing")}>swing</a></Link></td>
+                <td><Link prefetch href="/"><a className={this.getSelection("home")}>home</a></Link></td>
                 <td><Link prefetch href="/simulator"><a className={this.getSelection("simulator")}>simulator</a></Link></td>
                 <td><Link prefetch href="/history"><a className={this.getSelection("history")}>history</a></Link></td>
               </tr>
@@ -37,7 +38,7 @@ export class Navbar extends React.Component{
           div.root {
             display: flex;
             justify-content: center;
-            background-color: #323232;
+            background-color: ${ themeColors.darkMuted };
           }
 
           div.nav-elements{
@@ -55,16 +56,16 @@ export class Navbar extends React.Component{
           }
 
           a.regular {
-            color: #949494;
+            color: ${ themeColors.medLightMuted };
           }
 
           a.selected {
-            color: #91CC9B;
+            color: ${ themeColors.medLight };
             cursor: default;
           }
 
           a.regular :hover{
-            color: #CACACA;
+            color: ${ themeColors.lightMuted };
           }
 
           @media screen and (max-width: 750px){

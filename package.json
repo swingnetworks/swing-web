@@ -1,22 +1,20 @@
 {
-  "name": "fintrader",
-  "version": "0.0.1",
-  "description": "A fully-automatic algorithmic-based trading platform.",
+  "name": "swing-web",
+  "version": "0.0.2",
+  "description": "Front-end webpage for Swing Networks.",
+  "homepage": "http://www.swingnetworks.ca",
   "author": "Steven Xie",
-  "repository": "https://github.com/steven-xie/fintrader",
+  "repository": "https://github.com/swingnetworks",
   "license": "CC-BY-NC-4.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "custom": "node server.js"
+    "start": "next start"
   },
   "dependencies": {
     "express": "^4.15.5",
     "next": "^3.0.6",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "socket.io": "^2.0.3",
-    "socket.io-client": "^2.0.3"
+    "react-dom": "^15.6.1"
   }
 }

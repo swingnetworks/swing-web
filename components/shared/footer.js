@@ -1,4 +1,5 @@
 import React from 'react'
+import { themeColors } from '../../styles/shared/colors.js'
 
 export default class Footer extends React.Component{
   render(){
@@ -7,12 +8,13 @@ export default class Footer extends React.Component{
         <div className="row">
           <h2>made in <a>toronto</a></h2>
           <h1>$</h1>
-          <h2 style={{textAlign: 'right'}}>we're on <a href="https://github.com/steven-xie/fintrader">github</a></h2>
+          <h2 style={{textAlign: 'right'}}>we're on <a href="https://github.com/swingnetworks">github</a></h2>
         </div>
 
         <style jsx>{`
           div.root {
             display: flex;
+            background-color: ${ themeColors.darkMuted };
           }
 
           div.row {
@@ -28,24 +30,34 @@ export default class Footer extends React.Component{
             font-family: "Ubuntu", sans-serif;
             font-weight: 800;
             font-size: 75px;
-            color: #96F5B5;
+            color: ${ themeColors.med };
             cursor: default;
+            animation: colorPulse 2s infinite;
+          }
+
+          @keyframes colorPulse {
+            0% { color: ${ themeColors.med } }
+            7.5% { color: ${ themeColors.medLight } }
+            15% { color: ${ themeColors.med } }
+            22.5% { color: ${ themeColors.light } }
           }
 
           h2 {
             margin: 0 35px;
             font-weight: 300;
             font-size: 32.5px;
+            color: ${ themeColors.medLightMuted }
           }
 
           a {
             text-decoration: none;
-            color: #D0D0D0;
+            color: ${ themeColors.lightMuted };
             transition-duration: 0.25s;
+            font-weight: 400;
           }
 
           a:hover {
-            color: white;
+            color: ${ themeColors.light };
           }
 
           @media screen and (max-width: 600px){
