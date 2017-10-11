@@ -69,10 +69,6 @@ export class Navbar extends React.Component{
           }
 
           @media screen and (max-width: 750px){
-            div.root{
-              background-color: #2B2B2B;
-            }
-
             div.nav-elements{
               align-items: center;
             }

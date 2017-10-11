@@ -22,7 +22,7 @@ export default class Intro extends React.Component{
           }
 
           h1 {
-            margin: 65px 0 0 0 ;
+            margin: 100px 0 0 0 ;
             font-family: "Ubuntu", sans-serif;
             font-size: 75px;
             font-weight: 700;
@@ -38,7 +38,7 @@ export default class Intro extends React.Component{
           }
 
           button {
-            margin: 70px 0 115px 0;
+            margin: 70px 0 100px 0;
             padding: 17.5px 27.5px;
             border: 0;
             background-color: ${ themeColors.medDarkMuted };

@@ -37,7 +37,7 @@ export default class InfoCard extends React.Component{
           }
 
           div.tinted {
-            background-color: ${ themeColors.med };
+            background-color: ${ themeColors.medDarkMuted };
             color: ${ themeColors.light };
           }
 

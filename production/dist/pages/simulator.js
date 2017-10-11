@@ -44,6 +44,9 @@ var _body2 = _interopRequireDefault(_body);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var _jsxFileName = '/Users/stevenxie/Programs/active-projects/swing-networks/swing-web/pages/simulator.js?entry';
+
+
 var _class = function (_React$Component) {
   (0, _inherits3.default)(_class, _React$Component);
 
@@ -56,7 +59,24 @@ var _class = function (_React$Component) {
   (0, _createClass3.default)(_class, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'root' }, _react2.default.createElement(_meta.Meta, { title: '$: simulator' }), _react2.default.createElement(_navigation.Navbar, { selection: 'simulator' }), _react2.default.createElement(_body2.default, null), _react2.default.createElement(_style2.default, {
+      return _react2.default.createElement('div', { className: 'root', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 10
+        }
+      }, _react2.default.createElement(_meta.Meta, { title: '$: simulator', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11
+        }
+      }), _react2.default.createElement(_navigation.Navbar, { selection: 'simulator', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        }
+      }), _react2.default.createElement(_body2.default, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      }), _react2.default.createElement(_style2.default, {
         styleId: _default.display.__hash,
         css: _default.display
       }), _react2.default.createElement(_style2.default, {

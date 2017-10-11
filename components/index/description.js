@@ -6,11 +6,11 @@ export default class Description extends React.Component{
     return(
       <div className="root">
         <div>
-          <h1>“i have no idea what the hell i’m doing”</h1>
+          <h1>“rotman commerce sucks”</h1>
           <h2>—dave lio</h2>
         </div>
         <div>
-          <h1>“ding dong i’m a motherfuckin’ doorbell”</h1>
+          <h1>“aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa”</h1>
           <h2>—steven xie</h2>
         </div>
         <div className="spacer" />
