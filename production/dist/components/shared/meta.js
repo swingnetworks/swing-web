@@ -35,7 +35,6 @@ var _head2 = _interopRequireDefault(_head);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _jsxFileName = '/Users/stevenxie/Programs/active-projects/swing-networks/swing-web/components/shared/meta.js';
 var Meta = exports.Meta = function (_React$Component) {
   (0, _inherits3.default)(Meta, _React$Component);
 
@@ -53,33 +52,7 @@ var Meta = exports.Meta = function (_React$Component) {
   (0, _createClass3.default)(Meta, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'root', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 14
-        }
-      }, _react2.default.createElement(_head2.default, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 15
-        }
-      }, _react2.default.createElement('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 16
-        }
-      }), _react2.default.createElement('meta', { charSet: 'utf-8', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 17
-        }
-      }), _react2.default.createElement('title', {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 18
-        }
-      }, this.state.title), _react2.default.createElement('link', { href: 'https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900|Ubuntu:300,400,500,700', rel: 'stylesheet', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 19
-        }
-      })));
+      return _react2.default.createElement('div', { className: 'root' }, _react2.default.createElement(_head2.default, null, _react2.default.createElement('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }), _react2.default.createElement('meta', { charSet: 'utf-8' }), _react2.default.createElement('title', null, this.state.title), _react2.default.createElement('link', { href: 'https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900|Ubuntu:300,400,500,700', rel: 'stylesheet' })));
     }
   }]);
 

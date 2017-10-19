@@ -32,15 +32,27 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _navigation = require('../components/shared/navigation.js');
+var _default = require('../styles/shared/default.js');
+
+var _head = require('next/dist/lib/head.js');
+
+var _head2 = _interopRequireDefault(_head);
 
 var _meta = require('../components/shared/meta.js');
 
-var _default = require('../styles/shared/default.js');
+var _navigation = require('../components/shared/navigation.js');
 
-var _body = require('../components/simulator/body.js');
+var _intro = require('../components/index/intro.js');
 
-var _body2 = _interopRequireDefault(_body);
+var _intro2 = _interopRequireDefault(_intro);
+
+var _description = require('../components/index/description.js');
+
+var _description2 = _interopRequireDefault(_description);
+
+var _footer = require('../components/shared/footer.js');
+
+var _footer2 = _interopRequireDefault(_footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -56,7 +68,7 @@ var _class = function (_React$Component) {
   (0, _createClass3.default)(_class, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'root' }, _react2.default.createElement(_meta.Meta, { title: '$: simulator' }), _react2.default.createElement(_navigation.Navbar, { selection: 'simulator' }), _react2.default.createElement(_body2.default, null), _react2.default.createElement(_style2.default, {
+      return _react2.default.createElement('div', { className: 'root' }, _react2.default.createElement(_meta.Meta, { title: '$: home' }), _react2.default.createElement(_navigation.Navbar, { selection: 'home' }), _react2.default.createElement(_intro2.default, null), _react2.default.createElement(_description2.default, null), _react2.default.createElement(_footer2.default, null), _react2.default.createElement(_style2.default, {
         styleId: _default.display.__hash,
         css: _default.display
       }), _react2.default.createElement(_style2.default, {

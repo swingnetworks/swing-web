@@ -24,7 +24,8 @@ export default class ConsolePanel extends React.Component{
       console.log("Socket opened successfully...");
     }
     this.socket.onmessage = (event)=>{
-      const messages = this.appendMessage({sender: "system", text: event.data});
+      const message = JSON.parse(event.data).message
+      const messages = this.appendMessage({sender: "system", text: message});
       this.setState((state)=>{
         state.messages = messages;
         return state;

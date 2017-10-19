@@ -32,7 +32,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _colors = require('../../../styles/shared/colors.js');
+var _colors = require('../../styles/shared/colors.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45,8 +45,7 @@ var Panel = function (_React$Component) {
     var _this = (0, _possibleConstructorReturn3.default)(this, (Panel.__proto__ || (0, _getPrototypeOf2.default)(Panel)).call(this, props));
 
     _this.state = {
-      window: { width: '0', height: '0' },
-      title: props.title
+      window: { width: '0', height: '0' }
     };
     _this.updateWindowDimensions = _this.updateWindowDimensions.bind(_this);
     return _this;
@@ -62,11 +61,6 @@ var Panel = function (_React$Component) {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       window.removeEventListener('resize', this.updateWindowDimensions);
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(props) {
-      this.setState({ title: props.title });
     }
   }, {
     key: 'updateWindowDimensions',
@@ -85,22 +79,22 @@ var Panel = function (_React$Component) {
     key: 'getHeight',
     value: function getHeight() {
       if (this.state.window.width <= 750) {
-        return this.state.window.height - 150;
+        return this.state.window.height - 105;
       } else {
-        return this.state.window.height - 230;
+        return this.state.window.height - 205;
       }
     }
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'root', style: { height: this.getHeight() }, 'data-jsx': 1404893465
-      }, _react2.default.createElement('div', { className: 'title-bar', 'data-jsx': 1404893465
+      return _react2.default.createElement('div', { className: 'root', style: { height: this.getHeight() }, 'data-jsx': 2066704580
+      }, _react2.default.createElement('div', { className: 'title-bar', 'data-jsx': 2066704580
       }, _react2.default.createElement('h2', {
-        'data-jsx': 1404893465
-      }, this.state.title)), _react2.default.createElement('div', { className: 'content', 'data-jsx': 1404893465
+        'data-jsx': 2066704580
+      }, 'HISTORY')), _react2.default.createElement('div', { className: 'content', 'data-jsx': 2066704580
       }, this.props.children), _react2.default.createElement(_style2.default, {
-        styleId: 1404893465,
-        css: 'div.root[data-jsx="1404893465"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;border-radius:20px;background-color:' + _colors.themeColors.medLight + ';-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin:20px;width:40vw;max-width:550px;min-width:400px;min-height:250px;box-sizing:border-box;box-shadow:0 5px 10px rgba(0,0,0,.35)}div.title-bar[data-jsx="1404893465"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;background-color:' + _colors.themeColors.medDarkMuted + ';border-radius:20px 20px 0 0;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;padding:7.5px 0}div.title-bar[data-jsx="1404893465"] h2[data-jsx="1404893465"]{margin:0;font-family:"Ubuntu",sans-serif;font-size:20px;font-weight:500;color:' + _colors.themeColors.medLight + '}div.content[data-jsx="1404893465"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-flex:1;-ms-flex:1;flex:1;overflow-x:hidden;overflow-y:scroll}@media screen and (max-width:900px){div.root[data-jsx="1404893465"]{margin:10px;min-width:0;max-width:750px;width:90vw}}'
+        styleId: 2066704580,
+        css: 'div.root[data-jsx="2066704580"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;border-radius:20px;background-color:' + _colors.themeColors.medLight + ';-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin:10px;width:60vw;max-width:1000px;min-height:250px;box-sizing:border-box;box-shadow:0 3.5px 10px rgba(0,0,0,.3)}div.title-bar[data-jsx="2066704580"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;background-color:' + _colors.themeColors.medDarkMuted + ';border-radius:20px 20px 0 0;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;padding:7.5px 0}div.title-bar[data-jsx="2066704580"] h2[data-jsx="2066704580"]{margin:0;font-family:"Ubuntu",sans-serif;font-size:20px;font-weight:500;color:' + _colors.themeColors.medLight + '}div.content[data-jsx="2066704580"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-flex:1;-ms-flex:1;flex:1;overflow-x:hidden;overflow-y:scroll;color:' + _colors.themeColors.medMuted + '}@media screen and (max-width:750px){div.root[data-jsx="2066704580"]{min-width:0;max-width:750px;width:90vw}}'
       }));
     }
   }]);
