@@ -1,7 +1,6 @@
 import React from 'react'
 import Panel from './components/panel.js'
 import ConsoleMessage from './components/console-message.js'
-import { socketAddress } from '../shared/global-references.js'
 import { themeColors } from '../../styles/shared/colors.js'
 
 export default class ConsolePanel extends React.Component{
@@ -14,32 +13,38 @@ export default class ConsolePanel extends React.Component{
       messages: [],
     };
 
+    this.sendSocketMessage = props.sendSocketMessage;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  componentDidMount(){
-    this.socket = new WebSocket(socketAddress);
-    this.socket.onopen = ()=>{
-      console.log("Socket opened successfully...");
-    }
-    this.socket.onmessage = (event)=>{
-      const message = JSON.parse(event.data).message
-      const messages = this.appendMessage({sender: "system", text: message});
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.data.hasOwnProperty('message')) {
+      const newMessage = nextProps.data.message;
+      const messages = this.appendMessage({sender: "system", text: newMessage});
       this.setState((state)=>{
         state.messages = messages;
         return state;
       });
     }
+
+    if (nextProps.data.hasOwnProperty('console-command')) {
+      if (nextProps.data["console-command"] == "clear-previous") {
+        this.setState((state) => {
+          state.messages = [];
+          return state;
+        })
+      }
+    }
   }
 
-  componentDidUpdate(){
+  componentDidUpdate(prevProps, prevState) {
     this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   }
 
   handleSubmit(event){
     event.preventDefault();
-    this.socket.send(this.state.input.value);
+    this.sendSocketMessage(this.state.input.value);
     const messages = this.appendMessage({sender: "user", text: this.state.input.value});
     this.setState((state)=>{
       state.messages = messages;

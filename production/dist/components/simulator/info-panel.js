@@ -45,13 +45,62 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var InfoPanel = function (_React$Component) {
   (0, _inherits3.default)(InfoPanel, _React$Component);
 
-  function InfoPanel() {
+  function InfoPanel(props) {
     (0, _classCallCheck3.default)(this, InfoPanel);
 
-    return (0, _possibleConstructorReturn3.default)(this, (InfoPanel.__proto__ || (0, _getPrototypeOf2.default)(InfoPanel)).apply(this, arguments));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (InfoPanel.__proto__ || (0, _getPrototypeOf2.default)(InfoPanel)).call(this, props));
+
+    _this.state = {
+      simDate: "N/A",
+      pValue: "N/A",
+      aBalance: "N/A",
+      lastStock: "N/A",
+      lastValue: "N/A"
+    };
+    return _this;
   }
 
   (0, _createClass3.default)(InfoPanel, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var data = nextProps.data;
+
+      if (data.hasOwnProperty('info-date')) {
+        this.setState(function (state) {
+          state.simDate = data["info-date"];
+          return state;
+        });
+      }
+
+      if (data.hasOwnProperty('info-pvalue')) {
+        this.setState(function (state) {
+          state.pValue = data["info-pvalue"];
+          return state;
+        });
+      }
+
+      if (data.hasOwnProperty('info-abalance')) {
+        this.setState(function (state) {
+          state.aBalance = data["info-abalance"];
+          return state;
+        });
+      }
+
+      if (data.hasOwnProperty('info-last-stock')) {
+        this.setState(function (state) {
+          state.lastStock = data["info-last-stock"];
+          return state;
+        });
+      }
+
+      if (data.hasOwnProperty('info-last-value')) {
+        this.setState(function (state) {
+          state.lastValue = data["info-last-value"];
+          return state;
+        });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement('div', { className: 'root', 'data-jsx': 1690823854

@@ -40,22 +40,61 @@ var _infoPanel = require('./info-panel.js');
 
 var _infoPanel2 = _interopRequireDefault(_infoPanel);
 
+var _globalReferences = require('../shared/global-references.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Body = function (_React$Component) {
   (0, _inherits3.default)(Body, _React$Component);
 
-  function Body() {
+  function Body(props) {
     (0, _classCallCheck3.default)(this, Body);
 
-    return (0, _possibleConstructorReturn3.default)(this, (Body.__proto__ || (0, _getPrototypeOf2.default)(Body)).apply(this, arguments));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (Body.__proto__ || (0, _getPrototypeOf2.default)(Body)).call(this, props));
+
+    _this.state = {
+      consoleData: null,
+      infoData: null
+    };
+
+    _this.sendSocketMessage = _this.sendSocketMessage.bind(_this);
+    return _this;
   }
 
   (0, _createClass3.default)(Body, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.socket = new WebSocket(_globalReferences.socketAddress);
+      this.socket.onopen = function () {
+        console.log("Socket opened successfully...");
+      };
+      this.socket.onmessage = function (event) {
+        var json = JSON.parse(event.data);
+        if (json.hasOwnProperty('message') || json.hasOwnProperty('console-command')) {
+          _this2.setState(function (state) {
+            state.consoleData = json;
+            return state;
+          });
+        } else {
+          _this2.setState(function (state) {
+            state.infoData = json;
+            return state;
+          });
+        }
+      };
+    }
+  }, {
+    key: 'sendSocketMessage',
+    value: function sendSocketMessage(msg) {
+      this.socket.send(msg);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement('div', { className: 'root', 'data-jsx': 643766682
-      }, _react2.default.createElement(_consolePanel2.default, null), _react2.default.createElement(_infoPanel2.default, null), _react2.default.createElement(_style2.default, {
+      }, _react2.default.createElement(_consolePanel2.default, { data: this.state.consoleData, sendSocketMessage: this.sendSocketMessage }), _react2.default.createElement(_infoPanel2.default, { data: this.state.infoData }), _react2.default.createElement(_style2.default, {
         styleId: 643766682,
         css: 'div.root[data-jsx="643766682"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;padding:25px 0}@media screen and (max-width:900px){div.root[data-jsx="643766682"]{padding:5px 0}}'
       }));

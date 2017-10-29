@@ -40,8 +40,6 @@ var _consoleMessage = require('./components/console-message.js');
 
 var _consoleMessage2 = _interopRequireDefault(_consoleMessage);
 
-var _globalReferences = require('../shared/global-references.js');
-
 var _colors = require('../../styles/shared/colors.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -61,39 +59,43 @@ var ConsolePanel = function (_React$Component) {
       messages: []
     };
 
+    _this.sendSocketMessage = props.sendSocketMessage;
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleInputChange = _this.handleInputChange.bind(_this);
     return _this;
   }
 
   (0, _createClass3.default)(ConsolePanel, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      this.socket = new WebSocket(_globalReferences.socketAddress);
-      this.socket.onopen = function () {
-        console.log("Socket opened successfully...");
-      };
-      this.socket.onmessage = function (event) {
-        var message = JSON.parse(event.data).message;
-        var messages = _this2.appendMessage({ sender: "system", text: message });
-        _this2.setState(function (state) {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.data.hasOwnProperty('message')) {
+        var newMessage = nextProps.data.message;
+        var messages = this.appendMessage({ sender: "system", text: newMessage });
+        this.setState(function (state) {
           state.messages = messages;
           return state;
         });
-      };
+      }
+
+      if (nextProps.data.hasOwnProperty('console-command')) {
+        if (nextProps.data["console-command"] == "clear-previous") {
+          this.setState(function (state) {
+            state.messages = [];
+            return state;
+          });
+        }
+      }
     }
   }, {
     key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
+    value: function componentDidUpdate(prevProps, prevState) {
       this.messagesEnd.scrollIntoView({ behavior: "smooth" });
     }
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
       event.preventDefault();
-      this.socket.send(this.state.input.value);
+      this.sendSocketMessage(this.state.input.value);
       var messages = this.appendMessage({ sender: "user", text: this.state.input.value });
       this.setState(function (state) {
         state.messages = messages;
@@ -130,12 +132,12 @@ var ConsolePanel = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       return _react2.default.createElement('div', { className: 'root', 'data-jsx': 4192191637
       }, _react2.default.createElement(_panel2.default, { title: 'CONSOLE' }, _react2.default.createElement('div', { className: 'content', 'data-jsx': 4192191637
       }, this.getMessages(), _react2.default.createElement('span', { ref: function ref(element) {
-          _this3.messagesEnd = element;
+          _this2.messagesEnd = element;
         }, 'data-jsx': 4192191637
       })), _react2.default.createElement('div', { className: 'input-bar', 'data-jsx': 4192191637
       }, _react2.default.createElement('form', { onSubmit: this.handleSubmit, 'data-jsx': 4192191637

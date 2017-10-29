@@ -3,6 +3,57 @@ import Panel from './components/panel.js'
 import InfoCard from './components/info-card.js'
 
 export default class InfoPanel extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      simDate: "N/A",
+      pValue: "N/A",
+      aBalance: "N/A",
+      lastStock: "N/A",
+      lastValue: "N/A"
+    };
+  }
+
+
+  componentWillReceiveProps(nextProps) {
+    const data = nextProps.data;
+
+    if (data.hasOwnProperty('info-date')) {
+      this.setState((state)=>{
+        state.simDate = data["info-date"];
+        return state;
+      });
+    }
+
+    if (data.hasOwnProperty('info-pvalue')) {
+      this.setState((state)=>{
+        state.pValue = data["info-pvalue"];
+        return state;
+      });
+    }
+
+    if (data.hasOwnProperty('info-abalance')) {
+      this.setState((state)=>{
+        state.aBalance = data["info-abalance"];
+        return state;
+      });
+    }
+
+    if (data.hasOwnProperty('info-last-stock')) {
+      this.setState((state)=>{
+        state.lastStock = data["info-last-stock"];
+        return state;
+      });
+    }
+
+    if (data.hasOwnProperty('info-last-value')) {
+      this.setState((state)=>{
+        state.lastValue = data["info-last-value"];
+        return state;
+      });
+    }
+  }
+
   render(){
     return(
       <div className="root">
